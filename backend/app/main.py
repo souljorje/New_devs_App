@@ -29,6 +29,7 @@ from .api.v1 import (
     persistent_auth,
     dashboard,
     login,
+    properties,
 )
 
 from .monitoring.middleware import PerformanceMonitoringMiddleware
@@ -198,6 +199,9 @@ app.include_router(city_access_fixed.router, prefix="/api/v1", tags=["city-acces
 
 # Infrastructure
 app.include_router(health.router, prefix="/api/v1", tags=["health"])
+
+# Properties
+app.include_router(properties.router, prefix="/api/v1", tags=["properties"])
 
 
 @app.api_route("/health", methods=["GET", "HEAD"])
